@@ -4,13 +4,12 @@ function App() {
 
   const [fromArray,setFromArray] = useState(["Bangalore", "Nagpur", "Mumbai", "Goa"])
   const [toArray,setToArray] = useState(["Bangalore", "Nagpur", "Mumbai", "Goa"])
+  const [filteredArray,setFilteredArray] = useState([])
 
-  const resultArray = [{
-    brand : "Sharma Travels",price : 1000
+  const busesInfoArray = [{
+    brand : "Sharma Travels",price : 1000,from : ["Bangalore"],to : ["Mumbai","Goa"]
   },{
-    brand : "Volvo",price : 3000
-  },{
-
+    brand : "Volvo",price : 3000,from : ["Bangalore","Mumbai"],to : ["Goa","Nagpur"]
   }]
 
   const [from, setFrom] = useState("From");
@@ -27,9 +26,34 @@ function App() {
     setTo(input);
     setShow2(false);
   };
-  useEffect(() => {
 
-  },[]);
+
+  // function searching(){
+  //   for(let i=0;i<busesInfoArray.length-1;i++){
+  //     let info = busesInfoArray[i]
+  //     // if(info.from.includes(from)) console.log();
+  //     console.log(info.from.includes(from));
+  //     // console.log(info.from.includes(to));
+  //   }
+  // }
+  const filteredHandler = () =>{
+    const filteredArray = busesInfoArray.filter((e)=>{
+      // console.log(e.from.includes(from));
+      let fromCheck  = e.from.includes(from)
+      let toCheck = e.to.includes(to);
+      if(fromCheck && toCheck) {
+        return []   // we just need to return an array,doesnt matter what,coz the if condition does the filtering for us
+      }
+    })
+    console.log(filteredArray);
+    setFilteredArray(filteredArray);
+  }
+
+
+
+
+
+
   return (
     <main>
       <h1>Book Bus Tickets</h1>
@@ -40,6 +64,7 @@ function App() {
           fromArray.map((e, i) => {
             return (
                 <li
+              key={i}
                   style={{ listStyle: "none" }}
                   onClick={() => clickHandler(e)}
                   >
@@ -57,6 +82,7 @@ function App() {
           toArray.map((e, i) => {
             return (
               <li
+              key={i}
                 style={{ listStyle: "none" }}
                 onClick={() => clickHandler2(e)}
                 >
@@ -67,9 +93,9 @@ function App() {
       </div>
           </div>
           <input type="date" value={date}  onChange={e=>setDate(e.target.value)} />
-          <button>Submit</button>
+          <button onClick={filteredHandler}>Submit</button>
     <div className="result-container">
-          {resultArray.map((e,i)=>{
+          {filteredArray.map((e,i)=>{ // The catch here is,we need to create an array where the filtered objects are inserted
             return(
               <div className="result-card">
                  <h2>{e.brand}</h2>
