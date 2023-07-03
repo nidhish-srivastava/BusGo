@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function SelectSeat() {
   const seatArray = [
@@ -25,12 +26,15 @@ function SelectSeat() {
   const [toggle,setToggle]=  useState(false)
 
   const seatSelectHandle = (input, index) => {
-    const obj = {
-      seatNo: input,
-      id: index + 1,
-      selected: false,
-    };
-    setCardArray((e) => [...e, obj]); // We just need to increase the count of the array(without caring about whats inside)
+    if(!toggle){
+        const obj = {
+            seatNo: input,
+            id: index + 1,
+            selected: false,
+        };
+        setCardArray((e) => [...e, obj]); // We just need to increase the count of the array(without caring about whats inside)
+    }
+    setToggle(e=>!e)  //* IF i keep it just true,we wont be able to add others
   };
 
   const deleteHandler = (id) => {
@@ -47,7 +51,9 @@ function SelectSeat() {
       <div className="seat-container-grid">
         {seatArray.map((e, i) => (
           <div className="seat" onClick={() => seatSelectHandle(e, i)}>
+            <NavLink activeclassname = '.active'>
             {e}
+            </NavLink>
           </div>
         ))}
       </div>
