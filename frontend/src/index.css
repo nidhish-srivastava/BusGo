@@ -45,3 +45,47 @@ h1,h2,h3,h4,h5{
   display: flex;
   justify-content: space-between;
 }
+
+/* Select Seat Page CSS */
+
+.main-route-container{
+   display: flex;
+   justify-content: space-between;
+   gap: 2rem;
+   background-color: rgb(62, 155, 231);
+   width: 85%;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+.seat-container-grid{
+  display: flex;
+  padding: 1rem;
+  width: 15%;
+  justify-content: center;
+  margin-left: 4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: lightblue;
+}
+
+.seat{
+  text-align: center;
+  background-color: green;
+  padding: 1rem;
+}
+.seat:hover{
+  opacity: .7;
+  cursor: pointer;
+}
+
+.selected-seat-info{
+   outline: 4px solid white;
+   width: 60%;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
