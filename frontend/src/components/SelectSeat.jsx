@@ -4,7 +4,7 @@ import { useBusContext } from "../context/context";
 
 function SelectSeat() {
   const navigate = useNavigate()
-  const [name,setName] = useState("")
+  
   const seatArray = [
     "1a",
     "1b",
@@ -49,10 +49,6 @@ function SelectSeat() {
     //* 2nd way
     const filter = cardArray.filter((e)=>e.id!=id)
     setCardArray(filter)
-  };
-
-  const confirmDetailHandler = () =>{
-    navigate('/booking-confirmation')
   }
 
 
@@ -62,7 +58,7 @@ function SelectSeat() {
       <div className="seat-container-grid">
         {seatArray.map((e, i) => (
           <div className="seat" onClick={() => seatSelectHandle(e, i)}>
-            <NavLink activeclassname = '.active'>
+            <NavLink>
             {e}
             </NavLink>
           </div>
@@ -72,18 +68,18 @@ function SelectSeat() {
         <h2>Price : {price}</h2>
         <h2>{from} to {to}</h2>
         <h2>{date}</h2>
-        {cardArray.map((e, i) => {
+        {cardArray.map((e, index) => {
           // if(cardArray[i].completed==false){
             return (
-              <div>
+              <div key={index}>
                 {e.seatNo}
-                <input type="text" placeholder="Enter Name"/>
+                <input type="text" placeholder="Enter Name" />
                 <button onClick={() => deleteHandler(e.id)}>Delete</button>
               </div>
             );
         // }
         })}
-      <button>Confirm Details</button>
+      <button onClick={confirmHandler}>Confirm Details</button>
       </div>
     </div>
     </React.Fragment>

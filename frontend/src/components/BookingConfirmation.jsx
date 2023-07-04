@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useBusContext } from '../context/context'
 
 function BookingConfirmation({filteredArray}) {
   const {cardArray} = useBusContext()
   const {from,to,date,price} = useBusContext()
+  useEffect(()=>{
+    console.log(cardArray);
+  },[])
   return (
     <div className='booking-confirmation'>
       <h2>Amount to Pay  : {price}</h2>
@@ -12,7 +15,6 @@ function BookingConfirmation({filteredArray}) {
       {cardArray.map((e,i)=>(
         <div>
           Seat No : {e.seatNo}
-          Name : {e.name}
         </div>
       ))}
     </div>
