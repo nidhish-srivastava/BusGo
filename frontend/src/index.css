@@ -31,6 +31,26 @@ h1,h2,h3,h4,h5{
   margin: 0;
 }
 
+.nav{
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+a{
+  color: inherit;
+}
+.nav a{
+  padding: .51rem;
+  border-radius: 5px;
+  outline: 1px solid white;
+  background-color: rgb(124, 124, 216);
+}
+.nav a:hover{
+  background-color: transparent;
+  outline: 1px solid white;
+}
+
 .result-container{
     display: flex;
     width: 80%;
@@ -89,4 +109,10 @@ a{
   color: inherit;
 }
 
+
+.booking-confirmation{
+  outline: 4px solid hotpink;
+  padding: 3rem;
+  background-color: red;
+}
 

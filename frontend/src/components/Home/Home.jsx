@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import From from "./From";
 import To from "./To";
-import Result from "./Result";
+import SearchResult from "./SearchResult";
+import { useBusContext } from "../../context/context";
 
-function Home() {
-  const [filteredArray, setFilteredArray] = useState([]);
-  const [from, setFrom] = useState("From");
-  const [to, setTo] = useState("To");
-
+function Home({filteredArray,setFilteredArray}) {
+  const {from,setFrom,to,setTo,date,setDate} = useBusContext()
   const busesInfoArray = [
     {
       brand: "Sharma Travels",
@@ -23,7 +21,6 @@ function Home() {
     },
   ];
 
-  const [date, setDate] = useState("");
 
   const filteredHandler = () => {
     const filteredArray = busesInfoArray.filter((e) => {
@@ -49,7 +46,7 @@ function Home() {
         onChange={(e) => setDate(e.target.value)}
       />
       <button onClick={filteredHandler}>Submit</button>
-      <Result filteredArray={filteredArray} from={from} to={to} date={date} />
+      <SearchResult filteredArray={filteredArray}/>
     </main>
   );
 }

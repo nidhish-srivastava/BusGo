@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useBusContext } from '../../context/context';
 
-function Result({filteredArray,from,to,date}) {
+function SearchResult({filteredArray}) {
+  const {from,to,date,setBrand,setPrice}=  useBusContext()
   const navigate = useNavigate()
+
+  const selectBusHandler = (price,brand) =>{
+    setPrice(price)
+    setBrand(brand)
+    navigate('/select-seat')
+  }
+  
   return (
         <div className="result-container">
           {filteredArray.length==0 && <p>No buses found!!!</p>  }
@@ -15,7 +24,7 @@ function Result({filteredArray,from,to,date}) {
               <h2>Brand : {e.brand}</h2>
               <h2>Price :{e.price}</h2>
               <h2>Date : {date}</h2>
-              <button onClick={()=>navigate('/select-seat')} >Select Bus</button>
+              <button onClick={()=>selectBusHandler(e.price,e.brand)}>Select Bus</button>
             </div>
           );
         })}
@@ -23,4 +32,4 @@ function Result({filteredArray,from,to,date}) {
   )
 }
 
-export default Result
+export default SearchResult

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useBusContext } from "../context/context";
 
 function SelectSeat() {
+  const navigate = useNavigate()
+  const [name,setName] = useState("")
   const seatArray = [
     "1a",
     "1b",
@@ -22,31 +25,39 @@ function SelectSeat() {
     "6b",
     "6c",
   ];
-  const [cardArray, setCardArray] = useState([]);
-  const [toggle,setToggle]=  useState(false)
-
+  const {cardArray,setCardArray,price,from,to,date} = useBusContext()
   const seatSelectHandle = (input, index) => {
-    if(!toggle){
         const obj = {
             seatNo: input,
             id: index + 1,
             selected: false,
+            name : name
         };
-        setCardArray((e) => [...e, obj]); // We just need to increase the count of the array(without caring about whats inside)
-    }
-    setToggle(e=>!e)  //* IF i keep it just true,we wont be able to add others
+        setCardArray((e) => [...e, obj]);
   };
 
   const deleteHandler = (id) => {
+    /*
+    //* 1st way --> kind off cool :)
     setCardArray(
       cardArray.map((e) => {
         if (e.id === id) return { ...e, selected: !e.selected };
         return e;
       })
-    );
+      );
+      */
+    //* 2nd way
+    const filter = cardArray.filter((e)=>e.id!=id)
+    setCardArray(filter)
   };
 
+  const confirmDetailHandler = () =>{
+    navigate('/booking-confirmation')
+  }
+
+
   return (
+    <React.Fragment>
     <div className="main-route-container">
       <div className="seat-container-grid">
         {seatArray.map((e, i) => (
@@ -58,20 +69,25 @@ function SelectSeat() {
         ))}
       </div>
       <div className="selected-seat-info">
+        <h2>Price : {price}</h2>
+        <h2>{from} to {to}</h2>
+        <h2>{date}</h2>
         {cardArray.map((e, i) => {
-          if (cardArray[i].selected == false) {
+          // if(cardArray[i].completed==false){
             return (
               <div>
                 {e.seatNo}
-                <input type="text" placeholder="Enter Name" />
+                <input type="text" placeholder="Enter Name"/>
                 <button onClick={() => deleteHandler(e.id)}>Delete</button>
               </div>
             );
-          }
+        // }
         })}
       <button>Confirm Details</button>
       </div>
     </div>
+    </React.Fragment>
+
   );
 }
 
