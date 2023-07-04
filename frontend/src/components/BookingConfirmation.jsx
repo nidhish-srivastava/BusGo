@@ -14,7 +14,7 @@ function BookingConfirmation({filteredArray}) {
       <h2>{date}</h2>
       {cardArray.map((e,i)=>(
         <div>
-          Seat No : {e.seatNo}
+          Seat No : {e.seatNo} {" "} Name : {e.name}
         </div>
       ))}
     </div>

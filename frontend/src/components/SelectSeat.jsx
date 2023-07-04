@@ -31,7 +31,7 @@ function SelectSeat() {
             seatNo: input,
             id: index + 1,
             selected: false,
-            name : name
+            name : ""
         };
         setCardArray((e) => [...e, obj]);
   };
@@ -49,6 +49,15 @@ function SelectSeat() {
     //* 2nd way
     const filter = cardArray.filter((e)=>e.id!=id)
     setCardArray(filter)
+  }
+
+  const nameChangeHandler = (input,id) =>{
+     let copy = [...cardArray]
+     copy = copy.map((x)=>{
+      if(x.id===id) x.name = input.target.value
+      return x
+     })
+     setCardArray(copy)
   }
 
 
@@ -69,17 +78,15 @@ function SelectSeat() {
         <h2>{from} to {to}</h2>
         <h2>{date}</h2>
         {cardArray.map((e, index) => {
-          // if(cardArray[i].completed==false){
             return (
               <div key={index}>
                 {e.seatNo}
-                <input type="text" placeholder="Enter Name" />
+                <input type="text" placeholder="Enter Name" value={e.name} onChange={input=>nameChangeHandler(input,e.id)} />
                 <button onClick={() => deleteHandler(e.id)}>Delete</button>
               </div>
             );
-        // }
         })}
-      <button onClick={confirmHandler}>Confirm Details</button>
+      <button onClick={()=>navigate('/booking-confirmation')}>Confirm Details</button>
       </div>
     </div>
     </React.Fragment>
