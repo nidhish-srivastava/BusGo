@@ -1,26 +1,11 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+*{
+  box-sizing: border-box;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+body{
+  margin: 0;
+  font-family: 'Poppins',sans-serif;
 }
 
 h1{
@@ -29,13 +14,14 @@ h1{
 
 h1,h2,h3,h4,h5{
   margin: 0;
+  font-family: 'Montserrat',sans-serif;
 }
 
 .nav{
   display: flex;
   gap: 2rem;
-  padding: 1rem;
   font-size: 1.1rem;
+  padding: 2rem;
 }
 a{
   color: inherit;
@@ -43,14 +29,59 @@ a{
 .nav a{
   padding: .51rem;
   border-radius: 5px;
-  outline: 1px solid white;
   background-color: rgb(124, 124, 216);
 }
 .nav a:hover{
   background-color: transparent;
   outline: 1px solid white;
+  background-color: black;
+  color: white;
 }
 
+
+/* User Book CSS */
+.user-input-div{
+  margin-top: 3rem;
+  padding: 0 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.book-tickets{
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.from button,.to button,.book-tickets-main-container input,.btn-submit-form{
+  padding: .6rem;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: lightblue;
+  font-size: 1.1rem;
+}
+
+.btn-submit-form{
+  position: absolute;
+  right: 1rem;
+  top : 20rem;
+}
+
+.from{
+  width: 8%;
+}
+
+.to{
+  width: 8%;
+}
+
+
+
+/* Results after Search CSS */
 .result-container{
     display: flex;
     width: 80%;

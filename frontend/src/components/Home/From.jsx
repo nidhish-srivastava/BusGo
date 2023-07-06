@@ -1,7 +1,6 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 
-
-function From({from,setFrom}) {
+function From({ from, setFrom }) {
   const [fromArray, setFromArray] = useState([
     "Bangalore",
     "Nagpur",
@@ -15,10 +14,9 @@ function From({from,setFrom}) {
   };
 
   return (
-    <div>
-          <div className="from">
+      <div className="from">
         <button onClick={() => setShow((e) => !e)}>{from}</button>
-        <div value={from} onChange={(e) => setFrom(e.target.value)}>
+        <div value={from} onChange={(e) => setFrom(e.target.value)} className="from-dropdown" >
           {show &&
             fromArray.map((e, i) => {
               return (
@@ -33,8 +31,7 @@ function From({from,setFrom}) {
             })}
         </div>
       </div>
-    </div>
-  )
+  );
 }
 
-export default From
+export default From;

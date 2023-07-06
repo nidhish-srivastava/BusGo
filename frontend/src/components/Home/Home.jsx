@@ -36,16 +36,18 @@ function Home({filteredArray,setFilteredArray}) {
   };
 
   return (
-    <main>
-      <h1>Book Bus Tickets</h1>
+    <main className="book-tickets-main-container">
+      <h1 style={{textAlign : "center"}}>Book Bus Tickets</h1>
+      <div className="user-input-div">
       <From from={from} setFrom={setFrom} />
       <To to={to} setTo={setTo} />
       <input
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
-      />
-      <button onClick={filteredHandler}>Submit</button>
+        />
+      <button className="btn-submit-form" onClick={filteredHandler}>Submit</button>
+        </div>
       <SearchResult filteredArray={filteredArray}/>
     </main>
   );

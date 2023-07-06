@@ -1,24 +1,22 @@
-import React,{useState} from 'react'
+import React, { useState } from "react";
 
-function To({to,setTo}) {
-  
+function To({ to, setTo }) {
   const [toArray, setToArray] = useState([
     "Bangalore",
     "Nagpur",
     "Mumbai",
     "Goa",
   ]);
-    const [show2, setShow2] = useState(false);
-    
+  const [show2, setShow2] = useState(false);
+
   const clickHandler2 = (input) => {
     setTo(input);
     setShow2(false);
   };
   return (
-    <div>
       <div className="to">
         <button onClick={() => setShow2((e) => !e)}>{to}</button>
-        <div value={to} onChange={(e) => setTo(e.target.value)}>
+        <div value={to} className="to-dropdown" onChange={(e) => setTo(e.target.value)}>
           {show2 &&
             toArray.map((e, i) => {
               return (
@@ -33,8 +31,7 @@ function To({to,setTo}) {
             })}
         </div>
       </div>
-    </div>
-  )
+  );
 }
 
-export default To
+export default To;
