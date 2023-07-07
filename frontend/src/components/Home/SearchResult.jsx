@@ -19,14 +19,18 @@ function SearchResult({ filteredArray }) {
         // The catch here is,we need to create an array where the filtered objects are inserted
         return (
           <div className="result-card">
-            <h2>From : {from}</h2>
-            <h2>To : {to}</h2>
-            <h2>Brand : {e.brand}</h2>
-            <h2>Price :{e.price}</h2>
-            <h2>Date : {date}</h2>
+            {/* <div className="one"> */}
+            <h2>From - {from}</h2>
+            <h2>To - {to}</h2>
+            <h2>Brand - {e.brand}</h2>
+            {/* </div> */}
+            {/* <div className="two"> */}
+            <h2>Price - {e.price}</h2>
+            <h2>Date - {date}</h2>
             <button onClick={() => selectBusHandler(e.price, e.brand)}>
               Select Bus
             </button>
+            {/* </div> */}
           </div>
         );
       })}
