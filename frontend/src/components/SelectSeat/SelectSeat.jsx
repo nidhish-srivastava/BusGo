@@ -1,6 +1,6 @@
 import React from "react";
-import SeatContainerGrid from "./SelectSeat/SeatContainerGrid";
-import SelectedSeatInfo from "./SelectSeat/SelectedSeatInfo";
+import SeatContainerGrid from "./SeatContainerGrid";
+import SelectedSeatInfo from "./SelectedSeatInfo";
 
 function SelectSeat() {
 

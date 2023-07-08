@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SelectSeat from "./components/SelectSeat";
+import SelectSeat from "./components/SelectSeat/SelectSeat";
 import BookingConfirmation from "./components/BookingConfirmation";
 import Nav from "./components/Nav";
 

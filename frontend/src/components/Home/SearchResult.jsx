@@ -25,7 +25,7 @@ function SearchResult({ filteredArray }) {
             <h2>Brand - {e.brand}</h2>
             {/* </div> */}
             {/* <div className="two"> */}
-            <h2>Price - {e.price}</h2>
+            <h2>Price - &#8377;{e.price}</h2>
             <h2>Date - {date}</h2>
             <button onClick={() => selectBusHandler(e.price, e.brand)}>
               Select Bus

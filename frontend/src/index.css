@@ -194,9 +194,10 @@ a{
 
 /* FINAL CONFIRMATION CONTAINER */
 .booking-confirmation{
-  outline: 4px solid hotpink;
   padding: 3rem;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 @media (min-width : 768px) {
