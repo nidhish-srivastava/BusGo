@@ -22,6 +22,8 @@ h1,h2,h3,h4,h5{
   gap: 2rem;
   font-size: 1.1rem;
   padding: 2rem;
+  align-items: center;
+  text-align: center;
 }
 a{
   color: inherit;
@@ -79,15 +81,16 @@ a{
     width: 90%;
     margin: 2rem auto;
     border-radius: .4rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     flex-direction: column;
     align-items: center;
     gap: 2rem;
 }
 
 .result-card{
-  background : linear-gradient(to right,rgb(103, 134, 145),rgb(43, 99, 43));
+  background : linear-gradient(to right,rgb(151, 225, 252),rgb(54, 81, 161));
   width: 100%;
+  box-shadow: 1px 0px 5px 0px black;
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(min(9rem,100%),1fr));
   gap: 2rem;
@@ -99,10 +102,10 @@ a{
   border: none;
   padding: .51rem;
   font-size: 1.1rem;
-  background-color: rgb(101, 99, 196);
+  background-color: rgb(219, 219, 242);
   width: 60%;
   margin: 0 auto;
-  box-shadow: 0px 0px 2px 0px black;
+  /* box-shadow: 0px 0px 2px 0px black; */
   cursor: pointer;
 }
 
@@ -111,34 +114,36 @@ a{
   text-align: center;
 }
 
+
 /* Select Seat Page CSS */
 
 .main-route-container{
    display: flex;
-   justify-content: space-between;
-   gap: 2rem;
    background-color: rgb(62, 155, 231);
-   width: 85%;
+   width: 95%;
    margin: 0 auto;
-   padding: 2rem;
+   padding: 2rem 1rem;
+   gap: 2rem;
+   flex-direction: column;
+   align-items: center;
 }
 
 .seat-container-grid{
-  display: flex;
-  padding: 1rem;
-  width: 15%;
-  justify-content: center;
-  margin-left: 4rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   background-color: lightblue;
+  padding: 2rem;
+  width: 90%;
 }
 
 .seat{
   text-align: center;
   background-color: green;
   padding: 1rem;
+  border-radius: 8px;
 }
+
 .seat:hover{
   opacity: .7;
   cursor: pointer;
@@ -146,7 +151,39 @@ a{
 
 .selected-seat-info{
    outline: 4px solid white;
-   width: 60%;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   padding: 1rem;
+  }
+  
+  .selected-seat-info input{
+    padding: .51rem;
+    border-radius: 1rem;
+    border: none;
+    width: 60%;
+  }
+  
+.info-card{
+  display: flex;
+  gap: 1rem;
+}
+
+.info-card button{
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  border: none;
+  padding: .5rem;
+}
+
+.selected-seat-info button{
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  border: none;
+  padding: .71rem;
 }
 
 a{
@@ -155,9 +192,62 @@ a{
 }
 
 
+/* FINAL CONFIRMATION CONTAINER */
 .booking-confirmation{
   outline: 4px solid hotpink;
   padding: 3rem;
   background-color: red;
 }
 
+@media (min-width : 768px) {
+   .main-route-container{
+    flex-direction: row;
+    align-items: flex-start;
+   }
+  .result-card{
+    width: 80%;
+    border-radius: .71rem;
+    box-shadow: 0 0px 1px 0px black;
+    display: flex;
+    flex-direction: column;
+  }
+  .result-card button{
+    width: 22%;
+  }
+}
+
+@media (min-width : 1024px) {
+  .nav{
+    justify-content: center;
+    align-items: center;
+  }
+  .seat-container-grid{
+    padding: 1rem;
+    gap: 1rem;
+    width: 60%;
+  }
+  .seat{
+    margin: 0 auto;
+    width: 70%;
+  }
+  .top-div{
+    justify-content: space-around;
+  }
+  .result-container{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 3rem;
+  }
+  .result-card{
+     display: flex;
+     gap: 1rem;
+  }
+  .result-card button{
+    width: 50%;
+  }
+}
+
+@media (min-width : 1440px) {
+  
+}
