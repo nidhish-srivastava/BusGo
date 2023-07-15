@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import { useBusContext } from "../../context/context";
 
-function From({ from, setFrom }) {
-  const [fromArray, setFromArray] = useState([
+function From() {
+  const final = useBusContext()
+  const [fromArray, _] = useState([
     "Bangalore",
     "Nagpur",
     "Mumbai",
     "Goa",
   ]);
   const [show, setShow] = useState(false);
-  const clickHandler = (input) => {
-    setFrom(input);
-    setShow(false);
-  };
+
+
+  const handleClick = (e : string)=>{
+    final?.setFrom(e)
+    setShow(false)
+  }
 
   return (
       <div className="from">
-        <button onClick={() => setShow((e) => !e)}>{from}</button>
-        <div value={from} onChange={(e) => setFrom(e.target.value)} className="from-dropdown" >
+        <button onClick={() => setShow((e) => !e)}>{final?.from}</button>
+        <div  className="from-dropdown" >
           {show &&
             fromArray.map((e, i) => {
               return (
                 <li
                   key={i}
                   style={{ listStyle: "none" }}
-                  onClick={() => clickHandler(e)}
+                  onClick={()=>handleClick(e)}
                 >
                   {e}
                 </li>

@@ -163,6 +163,8 @@ a{
     border-radius: 1rem;
     border: none;
     width: 60%;
+    font-size: 1.1rem;
+    padding-left: 1rem;
   }
   
 .info-card{
@@ -191,6 +193,12 @@ a{
   color: inherit;
 }
 
+.details-trip{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
 
 /* FINAL CONFIRMATION CONTAINER */
 .booking-confirmation{
