@@ -1,10 +1,14 @@
-import a from './1.jpg'
+import { Suspense, lazy } from 'react'
+const LazyImage = lazy(()=>import("./LazyImage"))
+
 function Hero() {
   return (
     <div>
     <div className="hero-section">
       <div className="left">
-          <img src={a} alt="" />
+        <Suspense fallback = {<h2>Loading image..</h2>}>
+        <LazyImage/>
+        </Suspense>
       </div>
       <div className="right">
         <h1>BusGo</h1>
@@ -21,3 +25,4 @@ function Hero() {
 }
 
 export default Hero
+
