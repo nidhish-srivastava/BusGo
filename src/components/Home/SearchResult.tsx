@@ -10,6 +10,10 @@ function SearchResult() {
     navigate("/select-seat");
   };
 
+  console.log("Search Result");
+  
+  
+
   return (
     <div className="result-container">
       {final?.filteredArray?.map((e) => {

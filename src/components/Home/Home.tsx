@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useBusContext } from "../../context/context";
 import From from "./From";
 import SearchResult from "./SearchResult";
@@ -44,9 +45,11 @@ function Home() {
     final?.setFilteredArray(filteredResults);
   };
 
+  console.log("Home");
+  
+
   return (
     <main className="book-tickets-main-container">
-      <h1 style={{ textAlign: "center" }}>Book Bus Tickets</h1>
       <div className="user-input-div">
         <div className="top-div">
           <From />

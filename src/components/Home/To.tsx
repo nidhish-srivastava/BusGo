@@ -16,6 +16,9 @@ function To() {
     setShow2(false);
   };
 
+  console.log("To");
+  
+
   return (
     <div className="to">
       <button onClick={() => setShow2((e) => !e)}>{final?.to}</button>

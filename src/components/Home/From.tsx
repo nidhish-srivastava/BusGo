@@ -17,6 +17,9 @@ function From() {
     setShow(false)
   }
 
+  console.log("From");
+  
+
   return (
       <div className="from">
         <button onClick={() => setShow((e) => !e)}>{final?.from}</button>
