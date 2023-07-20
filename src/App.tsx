@@ -5,6 +5,7 @@ import BookingConfirmation from "./components/BookingConfirmation";
 import Home from "./components/Home/Home";
 import Hero from "./Hero";
 
+
 function App() {
   return (
     <BrowserRouter>

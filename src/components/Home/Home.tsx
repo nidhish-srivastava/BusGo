@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import {useMemo} from 'react'
 import { useBusContext } from "../../context/context";
 import From from "./From";
 import SearchResult from "./SearchResult";
@@ -18,21 +18,27 @@ function Home() {
     final?.setDate(e.target.value);
   };
 
-  const busesInfoArray: BusInfoType = [
-    {
-      brand: "Sharma Travels",
-      price: 1000,
-      from: ["Bangalore"],
-      to: ["Mumbai", "Goa"],
-    },
-    {
-      brand: "Volvo",
-      price: 3000,
-      from: ["Bangalore", "Mumbai"],
-      to: ["Goa", "Nagpur"],
-    },
-  ];
+  const busesInfoArray: BusInfoType = useMemo(  //* from 55% in lighthouse to 66%(improvement using useMemo )
+    ()=>
+    [
+      {
+        brand: "Sharma Travels",
+        price: 1000,
+        from: ["Bangalore"],
+        to: ["Mumbai", "Goa"],
+      },
+      {
+        brand: "Volvo",
+        price: 3000,
+        from: ["Bangalore", "Mumbai"],
+        to: ["Goa", "Nagpur"],
+      },
+    ],
+    // No dependencies since the array doesn't depend on any props or state
+    []
+  )
 
+  // here using useMemo wont be that useFull since this array is being dependent on many things,so we will have to pass these in dependencies,which leads no good results at all
   const filteredHandler = () => {
     const filteredResults = busesInfoArray.filter((e) => {
       // console.log(e.from.includes(from));
