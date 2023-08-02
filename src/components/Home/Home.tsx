@@ -3,6 +3,7 @@ import { useBusContext } from "../../context/context";
 import From from "./From";
 import SearchResult from "./SearchResult";
 import To from "./To";
+import data from '../../data.json'
 
 type BusInfoType = {
   brand: string;
@@ -19,22 +20,9 @@ function Home() {
   };
 
   const busesInfoArray: BusInfoType = useMemo(  //* from 55% in lighthouse to 66%(improvement using useMemo )
-    ()=>
-    [
-      {
-        brand: "Sharma Travels",
-        price: 1000,
-        from: ["Bangalore"],
-        to: ["Mumbai", "Goa"],
-      },
-      {
-        brand: "Volvo",
-        price: 3000,
-        from: ["Bangalore", "Mumbai"],
-        to: ["Goa", "Nagpur"],
-      },
-    ],
-    // No dependencies since the array doesn't depend on any props or state
+    ()=>{
+      return data
+    },
     []
   )
 

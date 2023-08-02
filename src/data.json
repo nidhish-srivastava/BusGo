@@ -1,0 +1,14 @@
+[
+    {
+        "brand": "Sharma Travels",
+        "price": 1000,
+        "from": ["Bangalore"],
+        "to": ["Mumbai", "Goa"]
+      },
+      {
+        "brand": "Volvo",
+        "price": 3000,
+        "from": ["Bangalore", "Mumbai"],
+        "to": ["Goa", "Nagpur"]
+      }
+]
