@@ -17,7 +17,7 @@ function From() {
     setShow(false)
   }
 
-  console.log("From");
+  console.log("From render");
   
 
   return (
@@ -42,3 +42,4 @@ function From() {
 }
 
 export default From;
+

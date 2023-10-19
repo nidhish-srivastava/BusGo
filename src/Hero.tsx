@@ -2,6 +2,8 @@ import { Suspense, lazy } from 'react'
 const LazyImage = lazy(()=>import("./LazyImage"))
 
 function Hero() {
+  console.log("Hero render");
+  
   return (
     <div>
     <div className="hero-section">

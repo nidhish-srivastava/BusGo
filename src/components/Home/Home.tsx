@@ -12,6 +12,8 @@ type BusInfoType = {
   to: string[];
 }[];
 
+// * PROBLEM WE FACE --> when the state is being changes of any component,it is rendering every component,causing unecessary re renders
+
 function Home() {
   const final = useBusContext();
 
@@ -26,11 +28,11 @@ function Home() {
     []
   )
 
-  // here using useMemo wont be that useFull since this array is being dependent on many things,so we will have to pass these in dependencies,which leads no good results at all
+  //* here using useMemo wont be that useFull since this array is being dependent on many things,so we will have to pass these in dependencies,which leads no good results at all
   const filteredHandler = () => {
     const filteredResults = busesInfoArray.filter((e) => {
       // console.log(e.from.includes(from));
-      let fromCheck = e.from.includes(final?.from ?? "");
+      let fromCheck = e.from.includes(final?.from ?? "");  //* nullish coalescing
       let toCheck = e.to.includes(final?.to ?? "");
       if (fromCheck && toCheck) {
         return []; // we just need to return an array,doesnt matter what,coz the if condition does the filtering for us
@@ -39,7 +41,9 @@ function Home() {
     final?.setFilteredArray(filteredResults);
   };
 
-  console.log("Home");
+  console.log("Home render");
+
+
   
 
   return (
@@ -65,3 +69,4 @@ function Home() {
 }
 
 export default Home;
+

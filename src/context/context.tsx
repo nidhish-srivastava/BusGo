@@ -40,6 +40,7 @@ type BusContextType = {
   setPrice: React.Dispatch<React.SetStateAction<number>>;
 };
 
+// * Another good reason of usinng customcontext hook is that(each time we have to check in every component wether its null or not)
 const BusContext = createContext<BusContextType | null>(null);
 
 export const useBusContext = () => useContext(BusContext);

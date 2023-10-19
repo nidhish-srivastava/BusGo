@@ -4,6 +4,8 @@ import {useState} from 'react'
 function Nav() {
   const [show,setShow] = useState(false)
   const navigate = useNavigate()
+  console.log("Nav render");
+  
   return (
     <div className='nav'>
       <h2 className='logo'>

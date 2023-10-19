@@ -16,7 +16,7 @@ function To() {
     setShow2(false);
   };
 
-  console.log("To");
+  console.log("To render");
   
 
   return (

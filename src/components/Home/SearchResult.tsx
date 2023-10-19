@@ -10,7 +10,7 @@ function SearchResult() {
     navigate("/select-seat");
   };
 
-  console.log("Search Result");
+  console.log("Search Result render");
   
   
 
